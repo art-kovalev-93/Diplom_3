@@ -4,7 +4,6 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from test_data import DETAIL_INGREDIENT_POPUP_TEXT
 from urls import BASE_URL, FEED_URL, INGREDIENT_URL
-from conftest import driver, new_user
 import pytest
 
 

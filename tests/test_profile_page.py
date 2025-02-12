@@ -1,5 +1,4 @@
 import allure
-from conftest import driver, new_user
 from locators.profile_page_locators import orders
 from pages.login_page import LoginPage
 from pages.main_page import MainPage

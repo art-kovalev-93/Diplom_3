@@ -31,4 +31,8 @@ class FeedPage(BasePage):
 
     @allure.step('Ожидаем новый заказ в работе')
     def wait_new_order_in_work(self, number):
-        return self.wait_text_in_element(locator=order_number_in_work, text=str(int(number) + 1))
+        self.wait_text_in_element(locator=order_number_in_work, text=str(int(number) + 1))
+
+    @allure.step('Получаем номер заказа в работе')
+    def get_order_in_work(self):
+         return self.find_element(order_number_in_work).text

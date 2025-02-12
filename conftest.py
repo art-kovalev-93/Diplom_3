@@ -26,3 +26,10 @@ def new_user():
     order.create_order(access_token=response.json().get('accessToken'), ingredients=Generator.get_receipt())
     yield response
     user.delete(access_token=response.json().get('accessToken'))
+
+@pytest.fixture
+def new_user_without_order():
+    user = UserApi()
+    response = user.registration(body=USER_DATA)
+    yield response
+    user.delete(access_token=response.json().get('accessToken'))

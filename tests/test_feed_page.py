@@ -6,7 +6,7 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.profile_page import ProfilePage
 from receip_generator import Generator
-from conftest import driver, new_user
+
 
 
 
@@ -46,12 +46,15 @@ class TestFeedPage:
         assert int(order_number) < int(new_order_number)
 
     @allure.title('Проверка что новый заказ появляется В работе')
-    def test_order_number_in_work_success(self, driver, new_user):
+    def test_order_number_in_work_success(self, driver, new_user_without_order):
         main_page = MainPage(driver)
         main_page.click_feed()
         feed = FeedPage(driver)
         order_number = feed.get_all_orders_number()
         order = OrderApi()
-        order.create_order(access_token=new_user.json().get('accessToken'), ingredients=Generator.get_receipt())
+        order.create_order(access_token=new_user_without_order.json().get('accessToken'), ingredients=Generator.get_receipt())
         feed.wait_new_order_in_work(order_number)
-        assert feed.wait_new_order_in_work(order_number) == int(order_number)+1
+        number = str(int(order_number)+1)
+        if len(number) == 6:
+            number='0'+number
+        assert feed.get_order_in_work() == number
