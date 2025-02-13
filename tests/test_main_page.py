@@ -1,5 +1,5 @@
 import allure
-from locators.main_page_locators import ingredient_counter
+from locators.main_page_locators import INGREDIENT_COUNTER
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from test_data import DETAIL_INGREDIENT_POPUP_TEXT
@@ -41,7 +41,7 @@ class TestMainPage:
     def test_ingredient_counter_success(self, driver):
         main_page = MainPage(driver)
         main_page.drag_and_drop_ingredient()
-        assert main_page.get_element_text(ingredient_counter) == "2"
+        assert main_page.get_element_text(INGREDIENT_COUNTER) == "2"
 
     @allure.title('Проверка создания заказа авторизированным пользователем')
     def test_create_order_auth_success(self, driver, new_user):

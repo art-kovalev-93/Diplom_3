@@ -1,5 +1,5 @@
 import allure
-from locators.profile_page_locators import orders
+from locators.profile_page_locators import ORDERS
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.profile_page import ProfilePage
@@ -34,7 +34,7 @@ class TestProfilePage:
         profile = ProfilePage(driver)
         profile.click_order_history()
         profile.wait_url_to_be(ORDER_HISTORY_URL)
-        assert len(profile.find_elements(orders)) == 1 and profile.current_url() == ORDER_HISTORY_URL
+        assert len(profile.find_elements(ORDERS)) == 1 and profile.current_url() == ORDER_HISTORY_URL
 
     @allure.title('Проверка разлогина')
     def test_logout_success(self, driver, new_user):

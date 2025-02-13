@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-recovery_password = [By.CSS_SELECTOR, "[href='/forgot-password']"]
-email_login = [By.CSS_SELECTOR, ".input__textfield[name='name']"]
-password = [By.CSS_SELECTOR, "[type='password']"]
-login_btn = [By.CSS_SELECTOR, "form button"]
+RECOVERY_PASSWORD = [By.CSS_SELECTOR, "[href='/forgot-password']"]
+EMAIL_LOGIN = [By.CSS_SELECTOR, ".input__textfield[name='name']"]
+PASSWORD = [By.CSS_SELECTOR, "[type='password']"]
+LOGIN_BTN = [By.CSS_SELECTOR, "form button"]
